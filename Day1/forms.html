@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <form action="/send", method="POST">    
+             Name : <input type="text" name="name"> </input>
+             <button type="submit"> Submit</button>
+
+             <!-- this also works BUT the real way is : to use label for, because, it focus the input box once the name is clicked!-->
+
+             <label for="password"> Password : </label>
+             <input type="password" name="password" id="password"></input>
+             <!-- btw Id this is the main for label for = id of input box-->
+              <!-- and the name=<> this thing goes to the POST server as args/query.-->
+
+              <label for="confirmation">Type CONFIRM</label>
+              <input type="text" id = "confirmation" required placeholder="Type the thing you are required to here."> </input>
+
+
+        </form>
+
+        <!-- for uploading files-->
+         <form action="/upload" enctype="multipart/form-data">  <!-- backend accepts from file:UploadFile=File(...) from /uploads endpoint / route !!-->
+            <label for id="uplaodfiles"> Upload the file : </label>
+            <input type="file" name="file" id="uplaodfiles"> </input>
+         </form>
+
+    </body>
+</html>

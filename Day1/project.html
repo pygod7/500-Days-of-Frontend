@@ -1,0 +1,73 @@
+<!-- Project: Personal Portfolio Landing Page (Static)
+
+Requirements:
+
+Header with a navbar (use <nav> + <ul> + <li>).
+
+Main section (<main>): Hero section with a welcome message and your name highlighted with <span>.
+
+About section (<section> inside <main>) with a few details about you.
+
+Contact section with a form: Name, Email, Message, and a Submit button. Use <label> + <input> + <textarea>.
+
+Footer with your copyright info.
+
+Optional extra: Include a file input in the contact form for “Upload Resume” just to practice <input type="file">.-->
+
+
+<html>
+    <head>
+        <title> Rubin DAY 1 Project </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project example for Day 1">
+    <meta name="keywords" content="day1, rubin, coding, frontend journey">
+
+    </head>
+
+    <body>
+        <header>
+            <div class="name">Rubin Bastakoti</div>
+        </header>
+        <nav>
+            <ul>
+                <li> <a href="#"> Home </a></li>
+                 <li> <a href="#"> Projects </a></li>
+                  <li> <a href="#"> Contacts </a></li>
+            </ul>
+        </nav>
+        <br><br>
+        <main>
+            <section class="HERO">
+                <h2> <span style="color:red; font-weight: bold"> Welcome</span> to my <span style="color:blue; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Protfolio!</span></h2>
+            </section>
+            <section class="about">
+                <p>I am <span style="color: rebeccapurple; font-family: Comic Sans MS;">Rubin Bastakoti</span>, from Nawalpur, Nepal. I dont want to write much things here as Im just practicing HTML! Thats it, and one day I'll be <span style="color:red; font-weight:bold"> fullstack dev & cybersec expert</span>, for sure, <span style="color:rebeccapurple; font-weight: bolder; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Note it!</span></p>
+
+            </section>
+<br><br>
+<h2> You can contact me from the <span style="color: aqua;"> form </span> below!</h2>
+            <section class="contact-me">
+                <form action="/send-msg" enctype="multipart/form-data" method="post">
+                    <label for="name"> Name : </label>
+                    <input type="text" id="name" name="name" required placeholder="Enter Name"> <br>
+                    <label for="email"> Email : </label>
+                    <input type="email" id="email" name="email" required placeholder="Enter email"><br>
+                    <label for="message"> Enter Message : </label>
+                    <input type="text" id="message" name="message" required placeholder="Enter your message for me">
+                   
+                    <p> If you want you can even attach your image so <span style="color: red; font-family: comic sans-serif;"> i can see you!</span></span></p>
+                    
+                        <label for="imagefile">Attach your pic : </label>
+                        <input type="file" id="imagefile" name="imagefile">
+                    <br><br>
+                    <button type="submit"> SEND </button>
+                    </form>
+            </section>
+        </main>
+        <footer>
+            <p> <span style="color: purple; font-family: Comic Sans MS; font-weight: bold;">Thank you </span> for visiting my portfolio!<br>&copy; Rubin Bastakoti 2025</p>
+        </footer>
+    </body>
+</html>
