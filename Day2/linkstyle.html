@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+    padding: 2rem; 
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  
+  .demo-section {
+    max-width: 900px; margin: 0 auto 3rem; 
+    background: white; 
+    padding: 2rem; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem; color: hsl(210 40% 20%); }
+  h2 { color: hsl(210 40% 25%); margin: 2rem 0 1.5rem 0; font-size: 1.5rem; }
+  
+  /* BASE LINK STYLES */
+  a {
+    color: hsl(210 80% 50%);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  a:hover { color: hsl(210 80% 30%); }
+  
+  /* 1. LEFT-TO-RIGHT (Original) */
+  .underline-ltr {
+    position: relative;
+  }
+  .underline-ltr::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    transition: width 0.4s ease;
+  }
+  .underline-ltr:hover::after { width: 100%; }
+  
+  /* 2. CENTER GROW */
+  .underline-center::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 50%;
+    width: 0; height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: translateX(-50%);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .underline-center:hover::after { width: 100%; }
+  
+  /* 3. RIGHT-TO-LEFT */
+  .underline-rtl {
+    position: relative;
+  }
+  .underline-rtl::after {
+    content: '';
+    position: absolute; bottom: -4px; right: 0; left: auto;
+    width: 0; height: 2px;
+    background: linear-gradient(90deg, #f093fb, #f5576c);
+    transition: width 0.4s ease;
+  }
+  .underline-rtl:hover::after { width: 100%; }
+  
+  /* 4. DOTTED LINE */
+  .underline-dotted::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: repeating-linear-gradient(90deg, transparent 0 4px, #4ecdc4 4px 8px);
+    transition: width 0.4s ease;
+  }
+  .underline-dotted:hover::after { width: 100%; }
+  
+  /* 5. COLOR SHIFT + THICK */
+  .underline-shift {
+    position: relative;
+  }
+  .underline-shift::after {
+    content: '';
+    position: absolute; bottom: -6px; left: 0;
+    width: 0; height: 4px;
+    background: hsl(210 80% 50%);
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+  .underline-shift:hover::after { 
+    width: 100%; 
+    background: hsl(0 80% 50%);
+  }
+  
+  /* BUTTON LINKS */
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    margin: 0.5rem;
+    background: linear-gradient(135deg, hsl(210 80% 50%), hsl(210 80% 45%));
+    color: white !important;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(33, 150, 243, 0.4);
+  }
+  .btn:active {
+    transform: translateY(-1px);
+  }
+  
+  /* LINK LIST */
+  .link-list {
+    display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid hsl(210 20% 90%);
+  }
+  
+  /* EXTERNAL LINK ICON */
+  a[href^="http"]::after {
+    content: ' ↗';
+    font-size: 0.8em;
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-section">
+  <h1>🎨 All Underline Animations</h1>
+  
+  <h2>1. Left → Right (Classic)</h2>
+  <div class="link-list">
+    <a href="#" class="underline-ltr">Home</a>
+    <a href="#" class="underline-ltr">About</a>
+    <a href="#" class="underline-ltr">Services</a>
+  </div>
+  
+  <h2>2. Center Grow (Premium)</h2>
+  <div class="link-list">
+    <a href="#" class="underline-center">Portfolio</a>
+    <a href="#" class="underline-center">Blog</a>
+    <a href="#" class="underline-center">Contact</a>
+  </div>
+  
+  <h2>3. Right → Left (Unique)</h2>
+  <div class="link-list">
+    <a href="#" class="underline-rtl">Pricing</a>
+    <a href="#" class="underline-rtl">Team</a>
+    <a href="https://google.com" class="underline-rtl">External ↗</a>
+  </div>
+  
+  <h2>4. Dotted Line (Fun)</h2>
+  <div class="link-list">
+    <a href="#" class="underline-dotted">Fun Link</a>
+    <a href="#" class="underline-dotted">Playful</a>
+    <a href="#" class="underline-dotted">Creative</a>
+  </div>
+  
+  <h2>5. Color Shift (Bold)</h2>
+  <div class="link-list">
+    <a href="#" class="underline-shift">Action Link</a>
+    <a href="#" class="underline-shift">Download</a>
+    <a href="#" class="underline-shift">Get Started</a>
+  </div>
+  
+  <h2>6. Button Links (Pro)</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem 0;">
+    <a href="#" class="btn">Primary</a>
+    <a href="#" class="btn" style="background: linear-gradient(135deg, hsl(0 80% 50%), hsl(0 80% 45%)); box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);">Danger</a>
+    <a href="#" class="btn" style="background: linear-gradient(135deg, hsl(140 80% 40%), hsl(140 80% 35%)); box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Success</a>
+  </div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 10px 0; font-family: Arial; }
+  
+  /* BAD: Native underline = instant */
+  .bad:hover { 
+    text-decoration: underline; 
+  }
+  
+  /* GOOD: ::after = smooth animation */
+  .good {
+    position: relative;
+  }
+  .good::after {
+    content: ''; 
+    position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px; background: red;
+    transition: width 0.5s ease;
+  }
+  .good:hover::after { width: 100%; }
+</style>
+</head>
+<body>
+  <p class="bad">BAD: Native underline (instant jump)</p>
+  <p class="good">GOOD: ::after animation (smooth growth)</p>
+</body>
+</html>

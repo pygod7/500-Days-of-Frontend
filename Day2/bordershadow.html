@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Arial; padding: 2rem; background: #f0f0f0; }
+  
+  .card {
+    width: 300px;
+    background: white;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 12px;                /* Rounded corners */
+    box-shadow:
+      0 4px 6px -1px rgba(0,0,0,0.1), /* Soft layered shadow */
+      0 2px 4px -2px rgba(0,0,0,0.1);
+    opacity: 0.95;                     /* Slight transparency */
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover {
+    box-shadow:
+      0 10px 15px -3px rgba(0,0,0,0.2),
+      0 4px 6px -4px rgba(107, 187, 8, 0.15);
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Card with Border-Radius & Shadow</h2>
+  <p>Hover to see shadows deepen and opacity sharpen.</p>
+</div>
+
+</body>
+</html>

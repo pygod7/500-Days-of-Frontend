@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; padding: 2rem; line-height: 1.6; }
+  
+  .typography-demo {
+    max-width: 600px; margin: 2rem 0; padding: 1.5rem; border-left: 4px solid #3498db; background: #f8f9fa;
+  }
+</style>
+</head>
+<body>
+
+<div class="typography-demo">
+  <h1 style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;">
+    Hero Heading (clamp responsive)
+  </h1>
+  
+  <p style="font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.025em; color: #666;">
+    Body text with perfect spacing. Line-height 1.7 = super readable. Letter-spacing adds modern polish.
+  </p>
+  
+  <button style="font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.75rem 1.5rem;">
+    Button Text (letter-spacing boost)
+  </button>
+</div>
+
+<style>
+  .modern-card {
+  border-left: 4px solid hsl(210 80% 50%);
+  background: hsl(220 20% 97%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.modern-heading {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: bolder;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+</style>
+
+<div class="modern-card">
+  <div class="modern-heading">nice</div>
+  
+</div>
+</body>
+</html>
