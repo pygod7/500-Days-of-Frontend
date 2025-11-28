@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overflow & Object-fit Demo</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    padding: 20px;
+}
+
+/* ---------- OVERFLOW EXAMPLES ---------- */
+.overflow-box {
+    width: 250px;
+    height: 100px;
+    background: #222;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* hide overflowing content */
+.hidden {
+    overflow: hidden;
+}
+
+/* show scrollbars if content overflows */
+.scroll {
+    overflow: scroll;
+}
+
+/* add scrollbars only when needed */
+.auto {
+    overflow: auto;
+}
+
+/* ---------- OBJECT-FIT EXAMPLES ---------- */
+.image-card {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    overflow: hidden; /* keeps image inside container */
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fills container and crops excess */
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.image-card img:hover {
+    transform: scale(1.05); /* subtle zoom on hover */
+}
+
+/* other object-fit options for demonstration */
+.image-card-contain {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.image-card-contain img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* fits image inside container without cropping */
+    background: #444; /* shows empty space */
+}
+</style>
+</head>
+<body>
+
+<h1>🔥 Overflow Examples</h1>
+
+<p>Overflow Hidden (content clipped):</p>
+<div class="overflow-box hidden">
+    This is a very long text that will be clipped because overflow is hidden. It won’t scroll.
+</div>
+
+<p>Overflow Scroll (scrollbars always):</p>
+<div class="overflow-box scroll">
+    This is a very long text that can scroll. You will see scrollbars to view the full content.
+</div>
+
+<p>Overflow Auto (scrollbars only if needed):</p>
+<div class="overflow-box auto">
+    This is a very long text. Scrollbars appear only when content exceeds container size.
+</div>
+
+<hr>
+
+<h1>🔥 Object-fit Examples</h1>
+
+<p>Object-fit: cover (fills container, may crop image)</p>
+<div class="image-card">
+    <img src="https://images.unsplash.com/photo-1682686582490-1d013d470670?auto=format&fit=crop&w=800&q=80" alt="Cover Example">
+</div>
+
+<p>Object-fit: contain (fits image inside container, may leave empty space)</p>
+<div class="image-card-contain">
+    <img src="https://images.unsplash.com/photo-1682686582490-1d013d470670?auto=format&fit=crop&w=800&q=80" alt="Contain Example">
+</div>
+
+</body>
+</html>

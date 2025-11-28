@@ -1,0 +1,51 @@
+CSS DAY 2 — LEARNING NOTES
+
+---
+
+// FLEXBOX
+learning flexbox, stuffs
+
+justify-content: center ==> aligns items left/right or spaces between
+align-items: center ==> aligns items top/bottom (vertically in the container)
+gap: 10px ==> space between items (like margin-right for flex items)
+flex-wrap: wrap ==> items move to next line if container is too small (responsiveness)
+
+// GRID
+display: grid ==> creates grid layout
+grid-template-columns: repeat(3,1fr) ==> 3 equal columns
+gap: 20px ==> spacing between grid items
+grid-column: span 2 ==> make an item span multiple columns
+
+// RESPONSIVE
+@media (max-width:768px) ==> styles for mobile/tablet
+flex-direction: column ==> stack items vertically
+
+// POSITIONING
+relative ==> move element relative to its normal place
+absolute ==> position element relative to nearest parent with relative
+fixed ==> element stays in place on scroll
+sticky ==> sticks to top when scrolling
+z-index ==> stack order of elements
+
+// HOVER + TRANSITIONS
+transition: 0.3s ease ==> smooth change of properties
+transform: scale(1.05) ==> zoom effect on hover
+
+// CSS VARIABLES
+:root { --primary: #ff4d4d; }
+var(--primary) ==> use variable, easy theme change
+
+// PSEUDO ELEMENTS
+::before ==> insert content before element text
+::after ==> insert content after element text
+
+// OVERFLOW + OBJECT-FIT
+overflow: hidden ==> clip content outside container
+overflow: scroll ==> always show scrollbar
+overflow: auto ==> show scrollbar if needed
+object-fit: cover ==> image fills container and crops excess
+object-fit: contain ==> image fits inside container without cropping
+
+---
+
+// End of Day 2 notes

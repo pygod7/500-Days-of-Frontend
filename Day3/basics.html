@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Learning</title>
+
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:#0d0d0d;color:white;font-family:Arial;padding:30px;}
+
+    .container{
+        background:#1a1a1a;
+        padding:20px;
+        border-radius:10px;
+        margin-top:25px;
+        display:flex; /* default flex setting */
+    }
+
+    .box{
+        background:#292929;
+        padding:20px;
+        border-radius:8px;
+        margin:10px;
+        font-size:20px;
+        text-align:center;
+        width:80px;
+    }
+</style>
+</head>
+<body>
+
+<h1>🔥 FLEXBOX MASTER SHEET</h1>
+<p>Scroll down & learn each layout visually.</p>
+
+
+<!-- 1. Default Flex (Row) -->
+<h2>1) Default Flex Row</h2>
+<div class="container" style="display:flex;">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+</div>
+
+
+<!-- 2. Column Direction -->
+<h2>2) flex-direction: column</h2>
+<div class="container" style="display:flex; flex-direction: column;">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+</div>
+
+
+<!-- 3. Centering -->
+<h2>3) Center items perfectly</h2>
+<div class="container" style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:200px;
+">
+    <div class="box">Centered</div>
+</div>
+
+
+<!-- 4. Space-between (like navbar layout) -->
+<h2>4) justify-content: space-between</h2>
+<div class="container" style="
+    display:flex;
+    justify-content:space-between;
+">
+    <div class="box">Logo</div>
+    <div style="display:flex; gap:15px;">
+        <div class="box">Home</div>
+        <div class="box">About</div>
+        <div class="box">Contact</div>
+    </div>
+</div>
+
+
+<!-- 5. gap + wrap -->
+<h2>5) flex-wrap + gap (auto move when small)</h2>
+<div class="container" style="
+    display:flex; flex-wrap:wrap; gap:10px;
+">
+    <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+    <div class="box">4</div><div class="box">5</div><div class="box">6</div>
+    <div class="box">7</div><div class="box">8</div><div class="box">9</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 CSS Project</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Arial, sans-serif;background:#111;color:white;line-height:1.5;}
+    a{text-decoration:none;color:white;}
+    
+    /* CSS Variables */
+    :root{
+        --primary:#ff4d4d;
+        --bg:#111;
+        --card-bg:#292929;
+        --card-hover:#444;
+        --gap:20px;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 50px;
+        background:var(--bg);
+        position:sticky;
+        top:0;
+        z-index:99;
+    }
+
+    .navbar .logo{font-size:24px;font-weight:bold;}
+    .nav-links{display:flex;gap:15px;}
+    .nav-links a{transition:0.3s;}
+    .nav-links a:hover{color:var(--primary);}
+
+    /* ---------- HERO ---------- */
+    .hero{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        height:60vh;
+        background:url('https://picsum.photos/1200/600') center/cover no-repeat;
+        text-align:center;
+        padding:0 20px;
+    }
+    .hero h1{font-size:48px;margin-bottom:20px;}
+    .hero button{
+        padding:12px 30px;
+        background:var(--primary);
+        border:none;
+        border-radius:8px;
+        color:white;
+        cursor:pointer;
+        transition:0.3s;
+    }
+    .hero button:hover{
+        transform:scale(1.05);
+    }
+
+    /* ---------- GRID CARDS ---------- */
+    .grid-container{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:var(--gap);
+        padding:40px 50px;
+    }
+    .grid-item{
+        background:var(--card-bg);
+        padding:30px;
+        border-radius:10px;
+        text-align:center;
+        transition:0.3s;
+        cursor:pointer;
+    }
+    .grid-item:hover{
+        background:var(--card-hover);
+        transform:scale(1.05);
+    }
+    .span-2{grid-column:span 2;}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:768px){
+        .grid-container{
+            grid-template-columns:1fr;
+            padding:20px;
+        }
+        .navbar{
+            flex-direction:column;
+            gap:15px;
+            padding:20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">MySite</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Welcome to MySite</h1>
+    <button>Get Started</button>
+</section>
+
+<!-- GRID CARDS -->
+<section class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item span-2">Featured</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+</section>
+
+</body>
+</html>

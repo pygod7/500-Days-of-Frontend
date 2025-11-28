@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Hover + Transition Playground</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Arial,sans-serif;background:#111;color:white;padding:20px;}
+
+    h1{margin-bottom:20px;text-align:center;}
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+        background:#ff4d4d;
+        padding:12px 30px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+        transition:0.3s ease;
+        margin:10px;
+    }
+
+    .btn:hover {
+        background:#ff1a1a;
+        transform:scale(1.05);
+    }
+
+    /* ---------- CARDS ---------- */
+    .grid-container {
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:20px;
+        margin-top:40px;
+    }
+
+    .card {
+        background:#292929;
+        padding:30px;
+        border-radius:10px;
+        text-align:center;
+        transition:0.3s ease;
+        cursor:pointer;
+    }
+
+    .card:hover {
+        transform:scale(1.05);
+        background:#444;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:768px){
+        .grid-container{
+            grid-template-columns:1fr;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<h1>🔥 Hover + Transition Playground</h1>
+
+<!-- Buttons -->
+<div style="text-align:center;">
+    <button class="btn">Click Me</button>
+    <button class="btn">Hover Me</button>
+    <button class="btn">Press Here</button>
+</div>
+
+<!-- Cards -->
+<div class="grid-container">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+    <div class="card">Card 5</div>
+    <div class="card">Card 6</div>
+</div>
+
+</body>
+</html>
