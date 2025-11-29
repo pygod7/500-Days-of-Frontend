@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Card</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 300px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    }
+
+    .card-image img {
+      width: 100%;
+      display: block;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-content h2 {
+      margin: 0 0 10px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #1da1f2; /* Twitter blue example */
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-image">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngfre.com%2Fwp-content%2Fuploads%2Foggy-1.png&f=1&nofb=1&ipt=c0495a6c8169a17f859f52d58c730077b31db95f48be09657b974ba243a88bb5" alt="Your Photo">
+    </div>
+    <div class="card-content">
+      <h2>Your Name</h2>
+      <p>Frontend Developer | CSS Enthusiast | Learning Every Day</p>
+      <div class="social-links">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
