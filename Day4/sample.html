@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo List</title>
+<style>
+    body{
+        font-family: 'Segoe UI', sans-serif;
+        background: #ecf0f1;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        min-height:100vh;
+        padding:20px;
+    }
+
+    h2{
+        color:#2c3e50;
+        font-size:28px;
+        margin-bottom:20px;
+    }
+
+    .todo-container{
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        width:350px;
+    }
+
+    #todoInput{
+        padding:12px;
+        width:70%;
+        font-size:16px;
+        border-radius:5px;
+        border:1px solid #bdc3c7;
+        outline:none;
+    }
+
+    #addBtn{
+        padding:12px 18px;
+        font-size:16px;
+        border:none;
+        background:#27ae60;
+        color:white;
+        border-radius:5px;
+        cursor:pointer;
+        margin-left:10px;
+        transition:0.2s;
+    }
+
+    #addBtn:hover{
+        background:#1e8449;
+    }
+
+    #todoList{
+        list-style:none;
+        padding:0;
+        margin-top:20px;
+    }
+
+    #todoList li{
+        background:#f8f9fa;
+        margin-bottom:12px;
+        padding:12px 15px;
+        border-radius:8px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        box-shadow:0 3px 6px rgba(0,0,0,0.1);
+        transition:0.2s;
+        cursor:pointer;
+    }
+
+    #todoList li.completed{
+        text-decoration:line-through;
+        color:#95a5a6;
+    }
+
+    #todoList li:hover{
+        background:#e0e0e0;
+    }
+
+    .delBtn{
+        background:#e74c3c;
+        border:none;
+        color:white;
+        padding:6px 10px;
+        border-radius:5px;
+        cursor:pointer;
+        font-weight:bold;
+        transition:0.2s;
+    }
+
+    .delBtn:hover{
+        background:#c0392b;
+    }
+
+</style>
+</head>
+<body>
+
+<h2>My Todo List</h2>
+
+<div class="todo-container">
+    <input type="text" id="todoInput" placeholder="Enter a task">
+    <button id="addBtn">Add</button>
+
+    <ul id="todoList"></ul>
+</div>
+
+<script>
+var input = document.getElementById("todoInput");
+var addBtn = document.getElementById("addBtn");
+var list = document.getElementById("todoList");
+
+function addTask(){
+    var taskText = input.value.trim();
+    if(taskText === ""){
+        alert("Enter a task first!");
+        return;
+    }
+
+    var li = document.createElement("li");
+    li.textContent = taskText;
+
+    li.onclick = function(){
+        li.classList.toggle("completed");
+    }
+
+    var delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
+    delBtn.className = "delBtn";
+    delBtn.onclick = function(e){
+        e.stopPropagation();
+        list.removeChild(li);
+    }
+
+    li.appendChild(delBtn);
+    list.appendChild(li);
+
+    input.value = "";
+}
+
+addBtn.onclick = addTask;
+
+input.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        addTask();
+    }
+});
+</script>
+
+</body>
+</html>

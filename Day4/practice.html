@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 - DOM Practice</title>
+
+    <style>
+        body{
+            font-family:sans-serif;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:25px;
+            margin-top:40px;
+        }
+        #box{
+            width:150px;
+            height:150px;
+            background:#333;
+            border-radius:10px;
+            transition:.3s;
+        }
+        button{
+            padding:10px 20px;
+            font-size:17px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Day 1 – JavaScript DOM Practice</h2>
+
+    <!-- Button + Box for first challenge -->
+    <button id="btn" onclick="changecolor()">Change Color</button>
+    <div id="box"></div>
+    <p id="colorValue">Color: #333</p>
+
+
+   </body>
+<script>
+
+function changecolor(){
+    box = document.getElementById("box");
+    // we could also use query selector. by:
+    //box = document.querySelector('.box') //class
+    //box = document.querySelector('#box') FROM id
+    //box = document.querySelectorAll(".item") selects all "item" class
+    // box = document.getElementByTagName("p") to select all <p> tags.
+        
+    colorvalue = document.getElementById("colorValue");
+    const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    box.style.background = randomColor;
+    colorvalue.textContent = "Color :" + randomColor;
+}
+
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selector Practice</title>
+<style>
+    body{
+        font-family:sans-serif;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+        margin-top:40px;
+    }
+    #box{
+        width:200px;
+        height:200px;
+        background:#333;
+        border-radius:10px;
+        transition:.3s;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:white;
+        font-weight:bold;
+        font-size:16px;
+    }
+    .color-btn{
+        padding:10px 20px;
+        cursor:pointer;
+        border:none;
+        border-radius:5px;
+        color:white;
+        font-weight:bold;
+    }
+</style>
+</head>
+<body>
+
+<h2>Choose Box Color</h2>
+
+<div id="buttons">
+    <button class="color-btn" data-color="#e74c3c" style="background:#e74c3c">Red</button>
+    <button class="color-btn" data-color="#2ecc71" style="background:#2ecc71">Green</button>
+    <button class="color-btn" data-color="#3498db" style="background:#3498db">Blue</button>
+    <button class="color-btn" data-color="#f1c40f" style="background:#f1c40f;color:#333">Yellow</button>
+    <button class="color-btn" data-color="#9b59b6" style="background:#9b59b6">Purple</button>
+</div>
+
+<div id="box">#333</div>
+
+<script>
+
+    box = document.querySelector('#box');
+    // or
+    // box = document.getElementById('box');
+
+    // function ChangeColor(){
+    //     let color = this.getAttribute("data-color");
+    //     box.style.background = color;
+    // }
+
+/*   btns = document.querySelectorAll('.color-btn');
+    let i = 0;
+    for(i; i<btns.length; i++){
+        btns[i].addEventListener("click", ChangeColor);
+    }
+
+    */ //this works too.
+
+
+    function ChangeColor(color){
+        box.style.background = color;
+        box.textContent = color;
+    }
+
+    btns = document.querySelectorAll('.color-btn');
+    btns.forEach(function(i){
+        i.addEventListener("click", function(){
+            color = i.getAttribute('data-color');
+            ChangeColor(color);
+        })
+    })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+from today i'll be learning Js, ofc i know js already, will revise and learn new things!
+
+i am always ready to learn & improve!!
+
+Todays' Goal;
+Query strategies (speed, scope, NodeLists)
+
+DOM Tree understanding
+
+Element creation pipelines (createElement, append, remove)
+
+Class manipulation + animation triggering
+
+Component-like UI structure using pure JS

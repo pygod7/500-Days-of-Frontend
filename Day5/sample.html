@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+</head>
+<body>
+
+<header>
+    <h1>Expense Tracker</h1>
+</header>
+
+<main>
+    <div class="card">
+
+        <div class="input-row">
+            <input type="text" id="desc" placeholder="What did you spend on?">
+            <input type="number" id="amount" placeholder="Amount (Rs)">
+            <button onclick="addExpense()">+</button>
+        </div>
+
+        <div class="expense-list"></div>
+
+        <div class="total-box">
+            <p>Total Spent</p>
+            <h2>Rs. <span id="total">0</span></h2>
+        </div>
+    </div>
+</main>
+
+<script>
+let descInput = document.querySelector("#desc");
+let amountInput = document.querySelector("#amount");
+let expList = document.querySelector(".expense-list");
+let totalDisplay = document.querySelector("#total");
+
+function addExpense(){
+    let desc = descInput.value.trim();
+    let amount = amountInput.value.trim();
+
+    if(desc === "" || amount === ""){
+        alert("Both fields needed bro.");
+        return;
+    }
+
+    if(amount <= 0){
+        alert("Amount must be positive.");
+        return;
+    }
+
+    let item = document.createElement("div");
+    item.className = "expense-item";
+
+    let textBox = document.createElement("div");
+    textBox.className = "text-box";
+
+    let title = document.createElement("p");
+    title.className = "title";
+    title.textContent = desc;
+
+    let amt = document.createElement("p");
+    amt.className = "amount";
+    amt.textContent = `Rs. ${amount}`;
+
+    textBox.appendChild(title);
+    textBox.appendChild(amt);
+
+    let delBtn = document.createElement("button");
+    delBtn.className = "delete-btn";
+    delBtn.textContent = "✕";
+
+    delBtn.addEventListener("click", function(){
+        updateTotal(-Number(amount));
+        item.remove();
+    });
+
+    item.appendChild(textBox);
+    item.appendChild(delBtn);
+    expList.appendChild(item);
+
+    updateTotal(Number(amount));
+
+    descInput.value = "";
+    amountInput.value = "";
+}
+
+function updateTotal(val){
+    let current = Number(totalDisplay.textContent);
+    totalDisplay.textContent = current + val;
+}
+</script>
+
+<style>
+
+body{
+    background: #f0f2f5;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header h1{
+    margin: 30px 0;
+    text-align: center;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    background: white;
+    width: 420px;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+}
+
+.input-row{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-row input{
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d5d5d5;
+    font-size: 14px;
+}
+
+.input-row button{
+    width: 50px;
+    font-size: 20px;
+    border: none;
+    background: #27ae60;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.expense-list{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.expense-item{
+    background: #fafafa;
+    padding: 12px 14px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+}
+
+.text-box .title{
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.text-box .amount{
+    margin: 3px 0 0 0;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.delete-btn{
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #e74c3c;
+    padding: 5px;
+}
+
+.total-box{
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.total-box p{
+    margin: 0;
+    color: #666;
+}
+
+.total-box h2{
+    margin: 5px 0 0 0;
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+</style>
+
+</html>

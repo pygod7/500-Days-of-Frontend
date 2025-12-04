@@ -1,0 +1,3 @@
+gotta practice JS more.
+
+expense trakcer !!!! (similar to todo mechanism maybe!!)

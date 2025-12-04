@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<body>
+    <header> <h1> My Todo List</h1></header>
+    <main>
+        <section class="box-container">
+
+            <div class="input-area">
+
+            
+            <input type="text" id="tasks" name="task" required placeholder="Enter a task">
+            <button type="submit" onclick="AddTasks()">Add</button>
+
+            </div>
+
+            <div class="tasks-list">
+              
+            </div>
+
+        </section>
+
+
+    </main>
+    
+</body>
+
+<script>
+let input = document.querySelector('#tasks')
+let list = document.querySelector('.tasks-list')
+
+input.addEventListener("keypress", function(event){
+    if(event.key === "Enter"){
+        AddTasks();
+    }
+})
+function AddTasks(){
+    let tasks_text = input.value
+    if(tasks_text === ""){
+        alert("EMPTY !! WRITE SOMETHING MAN!");
+        return
+    }   
+
+    let taskdiv = document.createElement("div")
+    taskdiv.className = 'task-item'
+    taskdiv.textContent = tasks_text
+
+
+    let delbtn = document.createElement('button')
+    delbtn.textContent = "Delete";
+
+    delbtn.addEventListener("click", function(){
+        taskdiv.remove()
+    })
+
+    
+    taskdiv.appendChild(delbtn)
+    list.appendChild(taskdiv)
+
+    input.value = ''
+}
+
+</script>
+
+<style>
+
+    .tasks-list{
+        background-color: rebeccapurple;
+        border-radius: 8px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 4px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .task-item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+        
+    }
+
+    .task-item button{
+        background-color: green;
+        height: 30px;
+        width: 60px;
+    }
+
+.input-area{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    gap: 10px;
+   
+}
+.input-area button{
+
+background-color: green;
+height: 40px;
+width: 70px;
+border-radius: 8px;
+
+cursor: pointer;
+color: white;
+border: none;
+}
+    input{
+        height: 40px;
+        flex: 1;
+        border-radius: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+         border:1px solid #ccc;
+         padding: 0 5px;
+        
+
+
+    }
+      body{
+        background-color: #ecf0f1;
+      
+    }
+  
+    header h1{
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        opacity: 0.8;
+        margin-top:40px;
+    }
+    .box-container{
+        background-color: white;
+        height: auto;
+        width: 400px;
+        border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        padding: 15px;
+    }
+    
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+</style>
+</html>
