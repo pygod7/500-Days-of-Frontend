@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: #f0f2f5;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            margin: 30px;
+            background-color: white;
+            height: auto;
+            width: 450px;
+            border-radius: 9px;
+        }
+        .screen{
+            margin: 10px;
+            background-color: #f0f2f5;
+            height: 45px;
+            width: 420px;
+            border-radius: 10px;
+            padding: 5px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .allbuttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 10px;
+
+        }
+
+        .allbuttons button{
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            border : none;
+            background-color: #e0e0e0;
+            transition: background-color 0.2s ease;
+        }
+
+        .allbuttons button:hover{
+            background-color: #d1d1d1;
+        }
+
+     
+#equalsto{
+    grid-column: span 2;
+}
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="box">
+            <div class="screen">
+            </div>
+            <div class="allbuttons">
+                <button id="c">C</button>
+                <button id="percentage">%</button>
+                <button id="divide">/</button>
+                <button id="multiply">*</button>
+                <button id="7">7</button>
+                <button id="8">8</button>
+                <button id="9">9</button>
+                <button id="minus">-</button>
+                <button id="4">4</button>
+                <button id="5">5</button>
+                <button id="6">6</button>
+                <button id="plus">+</button>
+                <button id="1">1</button>
+                <button id="2">2</button>
+                <button id="3">3</button>
+                <div class="blankspace"></div>
+                <button id="0">0</button>
+                <button id="dot">.</button>
+                <button id="equalsto">=</button>
+            </div>
+
+
+
+        </div>
+    </main>
+
+<script>
+    const screen = document.querySelector(".screen");
+    const c = document.getElementById("c");
+    const percentage = document.getElementById("percentage");
+    const divide = document.getElementById("divide");
+    const multiply = document.getElementById("multiply");
+    const seven = document.getElementById("7");
+    const eight = document.getElementById("8");
+    const nine = document.getElementById("9");
+    const minus = document.getElementById("minus");
+    const four = document.getElementById("4");
+    const five = document.getElementById("5");
+    const six = document.getElementById("6");
+    const plus = document.getElementById("plus");
+    const one = document.getElementById("1");
+    const two = document.getElementById("2");
+    const three = document.getElementById("3");
+    const zero = document.getElementById("0");
+    const dot = document.getElementById("dot");
+    const equalsto = document.getElementById("equalsto");
+
+    function HandleButtonClicks() {
+    const buttons = document.querySelectorAll("button");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+            if (buttons[i].textContent === "C") {
+                screen.textContent = '';
+            } 
+            else if (buttons[i].textContent === "=") {
+                HandleEqualsTo();
+            } 
+            else {
+                screen.textContent += buttons[i].textContent;
+            }
+        });
+    }
+}
+
+
+    function HandleEqualsTo(){
+        const equation = screen.textContent;
+        console.log(equation);
+        try{
+            equation = equation.replace(/%/g, '/100');
+
+        } catch(err){
+        }
+        try{
+            const solved = eval(equation);
+            screen.textContent = solved;
+        }catch(error){
+            screen.textContent = "Error : " + error;    
+        }
+
+    }
+
+    HandleButtonClicks();
+    </script>
+
+</body>
+</html>
